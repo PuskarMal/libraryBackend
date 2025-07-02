@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const corsOptions = {
-  origin: 'http://localhost:5173', // Allow this origin
+  origin: 'https://localhost:5173/', // Allow this origin
   credentials: true,               // Allow credentials
 };
 app.use(express.urlencoded({extended:false}))
@@ -26,5 +26,5 @@ app.use("/api/auth",Books)
 app.use("/api/auth",Author)
 app.use("/api/auth",Borrowwed)
 app.listen(process.env.PORT, () => {
-  console.log(`Example app listening at http://localhost:${process.env.PORT}`)
+  console.log(`Example app listening at https://librarybackend-2-xxmt.onrender.com`)
 })
