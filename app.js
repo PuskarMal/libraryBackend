@@ -2,13 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const corsOptions = {
-  origin: 'https://localhost:5173/', // Allow this origin
+  origin: 'http://localhost:5173', // Allow this origin
   credentials: true,               // Allow credentials
 };
 app.use(express.urlencoded({extended:false}))
 app.use(cors(corsOptions));
-require("./db")
 require("dotenv").config();
+require("./db")
+
 app.set("view engine","ejs");
 const User = require("./routes/user")
 const Books = require("./routes/book")
@@ -26,5 +27,5 @@ app.use("/api/auth",Books)
 app.use("/api/auth",Author)
 app.use("/api/auth",Borrowwed)
 app.listen(process.env.PORT, () => {
-  console.log(`Example app listening at https://librarybackend-2-xxmt.onrender.com`)
+  console.log(`Example app listening at https://localhost:${process.env.port}`)
 })
