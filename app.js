@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const corsOptions = {
-  origin: 'http://localhost:5173', // Allow this origin
+  origin: 'https://rainbow-maamoul-1ebe75.netlify.app/', // Allow this origin
   credentials: true,               // Allow credentials
 };
 app.use(express.urlencoded({extended:false}))
