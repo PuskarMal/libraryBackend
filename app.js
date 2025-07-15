@@ -1,9 +1,21 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://rainbow-maamoul-1ebe75.netlify.app',
+  'https://spiffy-profiterole-8b6800.netlify.app'
+];
+
 const corsOptions = {
-  origin: 'http://localhost:5173', // Allow this origin
-  credentials: true,               // Allow credentials
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 };
 app.use(express.urlencoded({extended:false}))
 app.use(cors(corsOptions));
