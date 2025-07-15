@@ -3,7 +3,8 @@ const cors = require('cors');
 const app = express();
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://rainbow-maamoul-1ebe75.netlify.app'
+  'https://rainbow-maamoul-1ebe75.netlify.app',
+  'https://spiffy-profiterole-8b6800.netlify.app/'
 ];
 
 const corsOptions = {
